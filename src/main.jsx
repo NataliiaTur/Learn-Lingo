@@ -1,11 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client';
-import 'modern-normalize';
-import './styles/index.css';
-import App from './components/App.jsx';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import "modern-normalize";
+import App from "./components/App/App.jsx";
+import "./styles/index.css";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+import "./test-firebase.js";
+
+createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
     <App />
-  </StrictMode>,
-)
+  </React.StrictMode>
+);
