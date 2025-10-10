@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "../../context/authContext.jsx";
 import "./App.css";
 import Layout from "../Layout/Layout.jsx";
 import Home from "../../pages/Home/Home.jsx";
@@ -8,17 +9,19 @@ import NotFound from "../NotFound/NotFound.jsx";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="teachers" element={<Teachers />} />
-          <Route path="favorites" element={<Favorites />} />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="teachers" element={<Teachers />} />
+            <Route path="favorites" element={<Favorites />} />
 
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
