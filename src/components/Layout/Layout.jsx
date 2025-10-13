@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext.jsx";
-import { logoutUser } from "../../services/authService.js";
-import Modal from "../Modal/Modal.jsx";
-import LoginForm from "../AuthForms/LoginForm.jsx";
-import RegistrationForm from "../AuthForms/RegistrationsForms.jsx";
+import { useAuth } from "@context/AuthContext.jsx";
+import { logoutUser } from "@services/authService.js";
+import Modal from "@components/Modal/Modal.jsx";
+import LoginForm from "@components/AuthForms/LoginForm.jsx";
+import RegistrationForm from "@components/AuthForms/RegistrationsForms.jsx";
 import css from "./Layout.module.css";
 
 function Layout() {

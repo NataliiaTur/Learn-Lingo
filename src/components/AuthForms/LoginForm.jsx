@@ -3,8 +3,8 @@ import icons from "/public/icons.svg";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { loginSchema } from "../../utils/validationSchemas.js";
-import { loginUser } from "../../services/authService.js";
+import { loginSchema } from "@utils/validationSchemas.js";
+import { loginUser } from "@services/authService.js";
 
 function LoginForm({ onClose, onSuccess }) {
   const [isLoading, setIsLoading] = useState(false);

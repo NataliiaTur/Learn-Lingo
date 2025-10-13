@@ -2,8 +2,8 @@ import css from "./RegistrationsForm.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { registrationSchema } from "../../utils/validationSchemas.js";
-import { registerUser } from "../../services/authService.js";
+import { registrationSchema } from "@utils/validationSchemas.js";
+import { registerUser } from "@services/authService.js";
 
 function RegistrationForm({ onClose, onSuccess }) {
   const [isLoading, setIsLoading] = useState(false);

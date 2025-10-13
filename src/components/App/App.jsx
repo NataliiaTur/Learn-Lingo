@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "../../context/AuthContext.jsx";
+import { AuthProvider } from "@context/AuthContext.jsx";
 import "./App.css";
-import Layout from "../Layout/Layout.jsx";
-import Home from "../../pages/Home/Home.jsx";
-import Teachers from "../../pages/Teachers/Teachers.jsx";
-import Favorites from "../../pages/Favorites/Favorites.jsx";
+import Layout from "@components/Layout/Layout.jsx";
+import Home from "@pages/Home/Home.jsx";
+import Teachers from "@pages/Teachers/Teachers.jsx";
+import Favorites from "@pages/Favorites/Favorites.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
 
 function App() {
