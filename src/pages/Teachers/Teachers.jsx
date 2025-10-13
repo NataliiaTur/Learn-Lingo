@@ -1,4 +1,3 @@
-import css from "./Teachers.module.css";
 import React from "react";
 
 function Teachers() {

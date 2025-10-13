@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/config";
@@ -65,9 +66,11 @@ export const loginUser = async (email, password) => {
 // Вихід користувача
 export const logoutUser = async () => {
   try {
-    await logoutUser(auth);
+    await signOut(auth);
+    console.log("✅ Logout successful");
     return { error: null };
   } catch (error) {
+    console.error("❌ Logout error:", error);
     return { error: getErrorMessage(error.code) };
   }
 };
@@ -78,7 +81,7 @@ export const getCurrentUser = () => {
 };
 
 // Підписка на зміни стану авторизації
-export const onAuthStateChange = (callback) => {
+export const onAuthChange = (callback) => {
   return onAuthStateChanged(auth, (user) => {
     if (user) {
       callback({
