@@ -1,5 +1,5 @@
 import css from "./LoginForm.module.css";
-import icons from "/src/assets/icons/icons.svg";
+import icons from "/public/icons.svg";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -75,7 +75,7 @@ function LoginForm({ onClose, onSuccess }) {
           >
             <svg className={css.eyeIcon} width="20" height="20">
               <use
-                href={`${icons}#${
+                href={`/public/icons.svg#${
                   isPasswordVisible ? "icon-eye-off" : "icon-eye"
                 }`}
               ></use>

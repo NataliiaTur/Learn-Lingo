@@ -106,8 +106,9 @@
 }
 
 .eyeIcon {
-  stroke-width: 2px;
-  stroke: #121417;
+  width: 20px;
+  height: 20px;
+  color: #121417; /* колір ліній */
   transition: stroke 0.3s;
 }
 
