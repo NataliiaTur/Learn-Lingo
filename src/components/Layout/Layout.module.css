@@ -1,22 +1,35 @@
 .header {
   background-color: white;
-  border-bottom: 1px solid rgba(18, 20, 23, 0.1);
-  padding: 20px 0;
+  padding: 20px 0 10px;
 }
 
 .nav {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
   display: flex;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
+  padding: 0 64px;
 }
 
 .logo {
+  display: flex;
+  gap: 8px;
   font-size: 20px;
   font-weight: 600;
-  color: #121417;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoIcon {
+  flex-shrink: 0;
+}
+
+.linksWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .links {
@@ -26,8 +39,10 @@
 
 .link {
   text-decoration: none;
-  color: #121417;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  white-space: nowrap;
   transition: color 0.2s;
 }
 
@@ -49,7 +64,6 @@
 
 .loginButton,
 .logoutButton {
-  padding: 12px 24px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -64,15 +78,28 @@
   color: #f4c550;
 }
 
+.loginButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  fill: none;
+  stroke: #f4c550;
+  flex-shrink: 0;
+}
+
 .registerButton {
-  padding: 12px 24px;
+  padding: 14px 39px;
   border: none;
   background-color: #121417;
   color: white;
   border-radius: 12px;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 125%;
   transition: background-color 0.2s;
 }
 

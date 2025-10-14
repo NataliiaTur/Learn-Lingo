@@ -6,6 +6,7 @@ import Modal from "@components/Modal/Modal.jsx";
 import LoginForm from "@components/AuthForms/LoginForm.jsx";
 import RegistrationForm from "@components/AuthForms/RegistrationsForms.jsx";
 import css from "./Layout.module.css";
+import { Container } from "../Container/Container.jsx";
 
 function Layout() {
   const { currentUser } = useAuth();
@@ -42,57 +43,67 @@ function Layout() {
   return (
     <div>
       <header className={css.header}>
-        <nav className={css.nav}>
-          <div className={css.logo}>
-            <span>Learn Lingo</span>
-          </div>
-
-          <div className={css.links}>
-            <Link to="/" className={css.link}>
-              Home
+        <Container>
+          <nav className={css.nav}>
+            <Link to="/" className={css.logo}>
+              <svg className={css.logoIcon} width="28" height="28">
+                <use href="icons.svg#icon-logo"></use>
+              </svg>
+              <span>LearnLingo</span>
             </Link>
-            <Link to="/teachers" className={css.link}>
-              Teachers
-            </Link>
-            {currentUser && (
-              <Link to="/favorites" className={css.link}>
-                Favorites
-              </Link>
-            )}
-          </div>
 
-          <div className={css.authButtons}>
-            {currentUser ? (
-              <>
-                <span className={css.userName}>
-                  {currentUser.displayName || currentUser.email}
-                </span>
-                <button
-                  onClick={handleLogout}
-                  className={css.logoutButton}
-                  disabled={isLoggingOut}
-                >
-                  {isLoggingOut ? "Вихід..." : "Вийти"}
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={() => setIsLoginModalOpen(true)}
-                  className={css.loginButton}
-                >
-                  Вхід
-                </button>
-                <button
-                  onClick={() => setIsRegisterModalOpen(true)}
-                  className={css.registerButton}
-                >
-                  Реєстрація
-                </button>
-              </>
-            )}
-          </div>
-        </nav>
+            <div className={css.linksWrapper}>
+              <div className={css.links}>
+                <Link to="/" className={css.link}>
+                  Home
+                </Link>
+                <Link to="/teachers" className={css.link}>
+                  Teachers
+                </Link>
+                {currentUser && (
+                  <Link to="/favorites" className={css.link}>
+                    Favorites
+                  </Link>
+                )}
+              </div>
+            </div>
+
+            <div className={css.authButtons}>
+              {currentUser ? (
+                <>
+                  <span className={css.userName}>
+                    {currentUser.displayName || currentUser.email}
+                  </span>
+                  <button
+                    onClick={handleLogout}
+                    className={css.logoutButton}
+                    disabled={isLoggingOut}
+                  >
+                    {isLoggingOut ? "Вихід..." : "Вийти"}
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={() => setIsLoginModalOpen(true)}
+                    className={css.loginButton}
+                  >
+                    <svg className={css.icon} width="20" height="20">
+                      <use href="/icons.svg#icon-log-in"></use>
+                    </svg>
+                    Log in
+                  </button>
+                  <button
+                    onClick={() => setIsRegisterModalOpen(true)}
+                    className={css.registerButton}
+                  >
+                    Registration
+                  </button>
+                </>
+              )}
+            </div>
+          </nav>
+        </Container>
       </header>
 
       <main>

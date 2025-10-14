@@ -1,0 +1,115 @@
+.homeSection {
+  padding: 10px 0 32px;
+  margin: 0 auto;
+}
+
+/* .homeContainer {
+  padding-bottom: 32px;
+} */
+
+.homeDescWithImg {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.homeBlockDesc {
+  width: 720px;
+  border-radius: 30px;
+
+  background-color: #f8f8f8;
+  padding: 98px 108px 114px 64px;
+}
+
+.homeTitle {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  max-width: 548px;
+}
+
+.homeTitleWord {
+  font-size: 48px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  font-style: italic;
+  font-weight: 400;
+  border-radius: 8px;
+  width: 195px;
+  height: 40px;
+  background: #fbe9ba;
+}
+
+.homeText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 137%;
+  letter-spacing: -0.02em;
+  max-width: 471px;
+  margin-bottom: 80px;
+}
+
+.homeButton {
+  border-radius: 12px;
+  padding: 16px 88px;
+
+  background-color: #f4c550;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+}
+
+.homeBlockImg {
+  max-width: 100%;
+}
+
+.homeListBorder {
+  position: relative;
+  border-radius: 30px;
+  overflow: visible;
+  width: 1312px;
+  height: 116px;
+  margin: 0 auto;
+}
+.homeListBorder::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 30px;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect x='1.5' y='1.5' width='calc(100%25 - 3px)' height='calc(100%25 - 3px)' rx='28.5' ry='28.5' fill='none' stroke='%23f4c550' stroke-width='3' stroke-dasharray='12 8' /%3E%3C/svg%3E")
+    center / 100% 100% no-repeat;
+}
+
+.homeListBenefits {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  padding: 40px 100px;
+}
+
+.homeElementOfListBenefits {
+  display: flex;
+  gap: 16px;
+}
+
+.homeBenefitsText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: rgba(18, 20, 23, 0.7);
+}
+
+.homeBenefitsNumber {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 114%;
+  letter-spacing: -0.02em;
+}
