@@ -6,6 +6,7 @@ import Home from "@pages/Home/Home.jsx";
 import Teachers from "@pages/Teachers/Teachers.jsx";
 import Favorites from "@pages/Favorites/Favorites.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
+import PrivateRoute from "@components/PrivateRoute/PrivateRoute.jsx";
 
 function App() {
   return (
@@ -15,7 +16,14 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="teachers" element={<Teachers />} />
-            <Route path="favorites" element={<Favorites />} />
+            <Route
+              path="favorites"
+              element={
+                <PrivateRoute>
+                  <Favorites />
+                </PrivateRoute>
+              }
+            />
 
             <Route path="*" element={<NotFound />} />
           </Route>
