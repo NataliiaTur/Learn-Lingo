@@ -15,7 +15,6 @@ function Layout() {
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const handleLogout = async () => {
-    console.log("🔄 Logout initiated..."); // Дебаг
     setIsLoggingOut(true);
 
     const result = await logoutUser();
@@ -37,8 +36,6 @@ function Layout() {
   const handleRegisterSuccess = () => {
     console.log("✅ Успішна реєстрація!");
   };
-
-  console.log("Current user in Layout:", currentUser);
 
   return (
     <div>

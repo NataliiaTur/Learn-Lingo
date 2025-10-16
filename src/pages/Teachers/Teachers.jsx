@@ -24,10 +24,8 @@ function Teachers() {
       const result = await fetchTeachers(pageNumber);
 
       if (pageNumber === 0) {
-        // Перша завантажка - замінюємо масив
         setTeachers(result.teachers);
       } else {
-        // Наступні завантажки - додаємо до існуючих
         setTeachers((prev) => [...prev, ...result.teachers]);
       }
 
@@ -54,7 +52,7 @@ function Teachers() {
           ))}
         </div>
 
-        {error && <p className={csss.error}>{error}</p>}
+        {error && <p className={css.error}>{error}</p>}
 
         {loading && <p className={css.loading}>Loading...</p>}
 

@@ -16,18 +16,12 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("🔧 AuthContext: Setting up auth listener");
-
-    // Підписуємось на зміни авторизації
     const unsubscribe = onAuthChange((user) => {
-      console.log("🔄 Auth state changed:", user ? user.email : "No user");
       setCurrentUser(user);
       setLoading(false);
     });
 
-    // Відписуємось при розмонтуванні
     return () => {
-      console.log("🔧 AuthContext: Cleaning up auth listener");
       unsubscribe();
     };
   }, []);
@@ -36,8 +30,6 @@ export const AuthProvider = ({ children }) => {
     currentUser,
     loading,
   };
-
-  console.log("AuthContext render, currentUser:", currentUser); // Дебаг
 
   return (
     <AuthContext.Provider value={value}>

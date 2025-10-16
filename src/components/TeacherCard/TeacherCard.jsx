@@ -1,17 +1,64 @@
 import { useState } from "react";
+import { useAuth } from "@context/AuthContext";
+import { useFavoritesStore } from "../../stores/useFavoritesStore.js";
 import TeacherInfo from "./TeacherInfo/TeacherInfo.jsx";
 import css from "./TeacherCard.module.css";
 
-function TeacherCard({ teacher }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+function TeacherCard({ teacher, onFavoriteChange }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  const { currentUser } = useAuth();
+
+  const favorites = useFavoritesStore((state) => state.favorites);
+  const addToFavorites = useFavoritesStore((state) => state.addToFavorites);
+  const removeFromFavorites = useFavoritesStore(
+    (state) => state.removeFromFavorites
+  );
+
+  const isFavorite =
+    currentUser && teacher.id
+      ? (favorites[currentUser.uid] || []).includes(teacher.id.toString())
+      : false;
 
   const handleFavoriteClick = () => {
-    setIsFavorite(!isFavorite);
+    if (!currentUser) {
+      setShowAuthModal(true);
+      return;
+    }
+
+    if (!teacher.id) {
+      console.error("Teacher ID is missing", teacher);
+      return;
+    }
+
+    const teacherId = teacher.id.toString();
+
+    if (isFavorite) {
+      console.log("Removing from favorites");
+      removeFromFavorites(currentUser.uid, teacherId);
+    } else {
+      console.log("Adding to favorites");
+      addToFavorites(currentUser.uid, teacherId);
+    }
+
+    // ⭐ Логування після зміни
+    setTimeout(() => {
+      const updatedFavorites = useFavoritesStore.getState().favorites;
+      console.log("Updated favorites:", updatedFavorites);
+    }, 100);
+
+    if (onFavoriteChange) {
+      onFavoriteChange();
+    }
   };
 
   const handleReadMore = () => {
     setIsExpanded(!isExpanded);
+  };
+
+  const closeAuthModal = () => {
+    setShowAuthModal(false);
   };
 
   return (
@@ -37,9 +84,9 @@ function TeacherCard({ teacher }) {
             <button
               onClick={handleFavoriteClick}
               className={css.favoriteButton}
-              aria-label="Add to favorites"
-              width="26"
-              height="26"
+              aria-label={
+                isFavorite ? "Remove from favorites" : "Add to favorites"
+              }
             >
               <svg
                 width="26"
@@ -67,7 +114,7 @@ function TeacherCard({ teacher }) {
               </span>
             </li>
 
-            <li className={css.infoItem} i>
+            <li className={css.infoItem}>
               <span className={css.infoLabel}>Lesson Info:</span>
               <span className={css.infoValue}>{teacher.lesson_info}</span>
             </li>
@@ -80,14 +127,12 @@ function TeacherCard({ teacher }) {
             </li>
           </ul>
 
-          {/* Кнопка Read more */}
           {!isExpanded && (
             <button onClick={handleReadMore} className={css.readMoreButton}>
               Read more
             </button>
           )}
 
-          {/* Розгорнута інформація */}
           {isExpanded && (
             <div className={css.expandedContent}>
               <p className={css.experience}>{teacher.experience}</p>
@@ -122,7 +167,6 @@ function TeacherCard({ teacher }) {
                 </div>
               )}
 
-              {/* Рівні мов */}
               {teacher.levels && teacher.levels.length > 0 && (
                 <div className={css.levels}>
                   {teacher.levels.map((level, index) => (
@@ -133,14 +177,28 @@ function TeacherCard({ teacher }) {
                 </div>
               )}
 
-              {/* ⭐ Кнопка бронювання - тільки після розгортання */}
-              {isExpanded && (
-                <button className={css.bookButton}>Book trial lesson</button>
-              )}
+              <button className={css.bookButton}>Book trial lesson</button>
             </div>
           )}
         </div>
       </div>
+
+      {showAuthModal && (
+        <div className={css.authModalBackdrop} onClick={closeAuthModal}>
+          <div className={css.authModal} onClick={(e) => e.stopPropagation()}>
+            <button className={css.authModalClose} onClick={closeAuthModal}>
+              ×
+            </button>
+            <h3 className={css.authModalTitle}>Authentication required</h3>
+            <p className={css.authModalText}>
+              Please log in or register to add teachers to your favorites.
+            </p>
+            <button className={css.authModalButton} onClick={closeAuthModal}>
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

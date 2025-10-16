@@ -11,11 +11,6 @@ import { database } from "../firebase/config.js";
 // Кількість карток на одну сторінку
 const ITEMS_PER_PAGE = 4;
 
-/**
- * Отримати викладачів з пагінацією
- * @param {number} page - номер сторінки (починається з 0)
- * @returns {Promise<{teachers: Array, hasMore: boolean}>}
- */
 export const fetchTeachers = async (page = 0) => {
   try {
     const teachersRef = ref(database, "teachers");
@@ -29,10 +24,21 @@ export const fetchTeachers = async (page = 0) => {
 
     const data = snapshot.val();
 
-    // Перетворюємо об'єкт на масив
-    const teachersArray = Array.isArray(data)
-      ? data
-      : Object.keys(data).map((key) => ({ id: key, ...data[key] }));
+    let teachersArray;
+
+    if (Array.isArray(data)) {
+      // Якщо це масив, додаємо індекс як id
+      teachersArray = data.map((teacher, index) => ({
+        ...teacher,
+        id: index.toString(),
+      }));
+    } else {
+      // Якщо це об'єкт, використовуємо ключі як id
+      teachersArray = Object.keys(data).map((key) => ({
+        ...data[key],
+        id: key,
+      }));
+    }
 
     // Пагінація
     const startIndex = page * ITEMS_PER_PAGE;
@@ -51,11 +57,6 @@ export const fetchTeachers = async (page = 0) => {
   }
 };
 
-/**
- * Отримати викладача за ID
- * @param {string} teacherId - ID викладача
- * @returns {Promise<Object|null>}
- */
 export const getTeacherById = async (teacherId) => {
   try {
     const teacherRef = ref(database, `teachers/${teacherId}`);
@@ -72,10 +73,6 @@ export const getTeacherById = async (teacherId) => {
   }
 };
 
-/**
- * Отримати всіх викладачів (для фільтрації)
- * @returns {Promise<Array>}
- */
 export const fetchAllTeachers = async () => {
   try {
     const teachersRef = ref(database, "teachers");
@@ -86,9 +83,22 @@ export const fetchAllTeachers = async () => {
     }
 
     const data = snapshot.val();
-    const teachersArray = Array.isArray(data)
-      ? data
-      : Object.keys(data).map((key) => ({ id: key, ...data[key] }));
+
+    let teachersArray;
+
+    if (Array.isArray(data)) {
+      // Якщо це масив, додаємо індекс як id
+      teachersArray = data.map((teacher, index) => ({
+        ...teacher,
+        id: index.toString(),
+      }));
+    } else {
+      // Якщо це об'єкт, використовуємо ключі як id
+      teachersArray = Object.keys(data).map((key) => ({
+        ...data[key],
+        id: key,
+      }));
+    }
 
     return teachersArray;
   } catch (error) {
