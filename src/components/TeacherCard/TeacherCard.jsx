@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "@context/AuthContext";
 import { useFavoritesStore } from "../../stores/useFavoritesStore.js";
 import TeacherInfo from "./TeacherInfo/TeacherInfo.jsx";
+import AuthRequiredModal from "@components/AuthRequiredModal/AuthRequiredModal.jsx";
 import css from "./TeacherCard.module.css";
 
 function TeacherCard({ teacher, onFavoriteChange }) {
@@ -10,16 +11,16 @@ function TeacherCard({ teacher, onFavoriteChange }) {
 
   const { currentUser } = useAuth();
 
-  const favorites = useFavoritesStore((state) => state.favorites);
+  const isFavorite = useFavoritesStore((state) => {
+    if (!currentUser || !teacher.id) return false;
+    const userFavorites = state.favorites[currentUser.uid] || [];
+    return userFavorites.includes(teacher.id.toString());
+  });
+
   const addToFavorites = useFavoritesStore((state) => state.addToFavorites);
   const removeFromFavorites = useFavoritesStore(
     (state) => state.removeFromFavorites
   );
-
-  const isFavorite =
-    currentUser && teacher.id
-      ? (favorites[currentUser.uid] || []).includes(teacher.id.toString())
-      : false;
 
   const handleFavoriteClick = () => {
     if (!currentUser) {
@@ -35,18 +36,10 @@ function TeacherCard({ teacher, onFavoriteChange }) {
     const teacherId = teacher.id.toString();
 
     if (isFavorite) {
-      console.log("Removing from favorites");
       removeFromFavorites(currentUser.uid, teacherId);
     } else {
-      console.log("Adding to favorites");
       addToFavorites(currentUser.uid, teacherId);
     }
-
-    // ⭐ Логування після зміни
-    setTimeout(() => {
-      const updatedFavorites = useFavoritesStore.getState().favorites;
-      console.log("Updated favorites:", updatedFavorites);
-    }, 100);
 
     if (onFavoriteChange) {
       onFavoriteChange();
@@ -55,10 +48,6 @@ function TeacherCard({ teacher, onFavoriteChange }) {
 
   const handleReadMore = () => {
     setIsExpanded(!isExpanded);
-  };
-
-  const closeAuthModal = () => {
-    setShowAuthModal(false);
   };
 
   return (
@@ -127,6 +116,17 @@ function TeacherCard({ teacher, onFavoriteChange }) {
             </li>
           </ul>
 
+          {/* до розгортання */}
+          {!isExpanded && teacher.levels && teacher.levels.length > 0 && (
+            <div className={css.levels}>
+              {teacher.levels.map((level, index) => (
+                <span key={index} className={css.levelBadge}>
+                  #{level}
+                </span>
+              ))}
+            </div>
+          )}
+
           {!isExpanded && (
             <button onClick={handleReadMore} className={css.readMoreButton}>
               Read more
@@ -177,28 +177,23 @@ function TeacherCard({ teacher, onFavoriteChange }) {
                 </div>
               )}
 
-              <button className={css.bookButton}>Book trial lesson</button>
+              <div className={css.wrapperButtonBookAndLess}>
+                <button className={css.bookButton}>Book trial lesson</button>
+
+                {/* Згортання */}
+                <button onClick={handleReadMore} className={css.showLessButton}>
+                  Show less
+                </button>
+              </div>
             </div>
           )}
         </div>
       </div>
 
-      {showAuthModal && (
-        <div className={css.authModalBackdrop} onClick={closeAuthModal}>
-          <div className={css.authModal} onClick={(e) => e.stopPropagation()}>
-            <button className={css.authModalClose} onClick={closeAuthModal}>
-              ×
-            </button>
-            <h3 className={css.authModalTitle}>Authentication required</h3>
-            <p className={css.authModalText}>
-              Please log in or register to add teachers to your favorites.
-            </p>
-            <button className={css.authModalButton} onClick={closeAuthModal}>
-              OK
-            </button>
-          </div>
-        </div>
-      )}
+      <AuthRequiredModal
+        isOpen={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+      />
     </div>
   );
 }
