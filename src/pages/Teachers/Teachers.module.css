@@ -1,0 +1,43 @@
+.teachersSection {
+  padding: 40px 0;
+}
+
+.teachersList {
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.loadMoreButton {
+  display: block;
+  margin: 0 auto;
+  padding: 16px 48px;
+  background-color: #f4c550;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.loadMoreButton:hover {
+  background-color: #f0b429;
+}
+
+.loading,
+.error,
+.endMessage {
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.endMessage {
+  color: #8a8a89;
+}

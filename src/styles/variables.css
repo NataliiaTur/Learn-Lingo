@@ -1,11 +1,11 @@
 :root {
   --font-family: "Roboto", sans-serif;
 
-  --color-bg: #ffffff;
+  --color-bg: #f8f8f8;
   --color-text: #121417;
 
   --color-primary: #f4c550;
   --color-secondary: #ffdc86;
-  
+
   --transition: 0.3s ease;
 }

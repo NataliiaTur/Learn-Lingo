@@ -1,0 +1,45 @@
+.infoBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 150%;
+  color: #121417;
+}
+
+.separator {
+  width: 1px;
+  height: 16px;
+  background-color: rgba(18, 20, 23, 0.2);
+  margin: 0 16px 0 16 px;
+}
+
+.iconBook {
+  stroke: #121417;
+  fill: none;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.iconStar {
+  fill: #ffc531;
+  stroke: none;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.infoText {
+  color: #121417;
+}
+
+.price {
+  color: #38cd3e;
+  font-weight: 500;
+}

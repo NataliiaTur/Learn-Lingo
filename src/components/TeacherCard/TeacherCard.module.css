@@ -1,0 +1,240 @@
+.card {
+  background-color: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  gap: 24px;
+}
+
+.avatarWrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #fbe9ba;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 48px;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cardContent {
+  flex: 1;
+  margin-bottom: 32px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  height: 26px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  color: #8a8a89;
+  align-items: center;
+}
+
+.favoriteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  align-items: center;
+}
+
+.favoriteButton:hover {
+  transform: scale(1.1);
+}
+
+.heartIcon {
+  stroke: #121417;
+  fill: none;
+  transition: all 0.2s;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 100%;
+  margin: 0;
+  color: #121417;
+  margin-bottom: 32px;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.infoItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #8a8a89;
+}
+
+.infoLabel {
+  color: #8a8a89;
+  margin-right: 4px;
+}
+
+.infoValue {
+  color: #121417;
+}
+
+.infoValueSpeaks {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #121417;
+}
+
+.readMoreButton {
+  background: none;
+  border: none;
+  color: #121417;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+  padding: 0;
+  font-weight: 500;
+}
+
+.readMoreButton:hover {
+  color: #f4c550;
+}
+
+.expandedContent {
+  margin-top: 32px;
+}
+
+.experience {
+  font-size: 16px;
+  line-height: 150%;
+  color: #121417;
+  margin-bottom: 32px;
+}
+
+.reviews {
+  margin-bottom: 32px;
+}
+
+.review {
+  margin-bottom: 32px;
+}
+
+.review:last-child {
+  margin-bottom: 0;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.reviewerAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #f4c550;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 20px;
+  color: #8a8a89;
+  background-color: rgba(244, 197, 80, 0.2);
+  flex-shrink: 0;
+}
+
+.reviewerName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #8a8a89;
+  margin: 0 0 2px 0;
+}
+
+.reviewRating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 129%;
+  color: #121417;
+}
+
+.starIcon {
+  fill: #f4c550;
+}
+
+.reviewComment {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  color: #121417;
+  margin: 0;
+}
+
+.levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.levelBadge {
+  padding: 8px 12px;
+  border-radius: 35px;
+  border: 1px solid rgba(18, 20, 23, 0.2);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 114%;
+}
+
+.levelBadge:first-child {
+  background-color: #f4c550;
+  color: #121417;
+  border: none;
+}
+
+.bookButton {
+  padding: 16px 48px;
+  background-color: #f4c550;
+  color: #121417;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 156%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.bookButton:hover {
+  background-color: #f0b429;
+}
