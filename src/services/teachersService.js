@@ -40,7 +40,6 @@ export const fetchTeachers = async (page = 0) => {
       }));
     }
 
-    // Пагінація
     const startIndex = page * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     const paginatedTeachers = teachersArray.slice(startIndex, endIndex);
@@ -87,13 +86,11 @@ export const fetchAllTeachers = async () => {
     let teachersArray;
 
     if (Array.isArray(data)) {
-      // Якщо це масив, додаємо індекс як id
       teachersArray = data.map((teacher, index) => ({
         ...teacher,
         id: index.toString(),
       }));
     } else {
-      // Якщо це об'єкт, використовуємо ключі як id
       teachersArray = Object.keys(data).map((key) => ({
         ...data[key],
         id: key,

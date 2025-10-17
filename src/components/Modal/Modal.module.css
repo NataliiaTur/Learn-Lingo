@@ -49,12 +49,10 @@
   padding: 64px;
   max-width: 566px;
   width: 90%;
-  /* max-height: 90vh; */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-
   animation: slideUp 0.3s ease;
-  margin: auto; /* ⭐ Центрування */
-  min-height: min-content; /* ⭐ Мінімальна висота за контентом */
+  margin: auto;
+  min-height: min-content;
 }
 
 .closeButton {

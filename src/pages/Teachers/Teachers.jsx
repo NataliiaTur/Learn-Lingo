@@ -20,12 +20,10 @@ function Teachers() {
     price: "30",
   });
 
-  // Завантаження всіх викладачів при монтуванні
   useEffect(() => {
     loadAllTeachers();
   }, []);
 
-  // Застосування фільтрів при зміні
   useEffect(() => {
     if (allTeachers.length > 0) {
       applyFilters();
@@ -50,7 +48,7 @@ function Teachers() {
   const applyFilters = () => {
     const filtered = filterTeachers(allTeachers, filters);
     setFilteredTeachers(filtered);
-    // Показуємо перші 4 картки після фільтрації
+
     setDisplayedTeachers(filtered.slice(0, ITEMS_PER_PAGE));
     setPage(0);
   };
@@ -62,7 +60,7 @@ function Teachers() {
   const handleLoadMore = () => {
     const nextPage = page + 1;
     const endIndex = (nextPage + 1) * ITEMS_PER_PAGE;
-    // Додаємо наступні 4 картки до вже відображених
+
     setDisplayedTeachers(filteredTeachers.slice(0, endIndex));
     setPage(nextPage);
   };

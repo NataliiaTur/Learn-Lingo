@@ -1,5 +1,4 @@
 import css from "./LoginForm.module.css";
-import icons from "/public/icons.svg";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useForm } from "react-hook-form";

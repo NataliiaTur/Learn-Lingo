@@ -19,7 +19,6 @@ function PrivateRoute({ children }) {
     );
   }
 
-  // Якщо користувач не авторизований - перенаправляємо на головну
   if (!currentUser) {
     return <Navigate to="/" replace />;
   }

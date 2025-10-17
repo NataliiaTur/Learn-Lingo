@@ -7,17 +7,14 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase/config";
 
-// Реєстрація нового користувача
 export const registerUser = async (email, password, name) => {
   try {
-    // Створюємо користувача
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
 
-    // Оновлюємо профіль користувача (додаємо ім'я)
     await updateProfile(userCredential.user, {
       displayName: name,
     });
@@ -38,7 +35,6 @@ export const registerUser = async (email, password, name) => {
   }
 };
 
-// Вхід існуючого користувача
 export const loginUser = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(
@@ -63,7 +59,6 @@ export const loginUser = async (email, password) => {
   }
 };
 
-// Вихід користувача
 export const logoutUser = async () => {
   try {
     await signOut(auth);
@@ -75,12 +70,10 @@ export const logoutUser = async () => {
   }
 };
 
-// Отримання поточного користувача
 export const getCurrentUser = () => {
   return auth.currentUser;
 };
 
-// Підписка на зміни стану авторизації
 export const onAuthChange = (callback) => {
   return onAuthStateChanged(auth, (user) => {
     if (user) {

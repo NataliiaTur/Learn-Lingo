@@ -4,23 +4,19 @@ import { persist } from "zustand/middleware";
 export const useFavoritesStore = create(
   persist(
     (set, get) => ({
-      // Стан: об'єкт з favorites для кожного користувача
       favorites: {},
 
-      // Отримати favorites для користувача
       getFavorites: (userId) => {
         if (!userId) return [];
         return get().favorites[userId] || [];
       },
 
-      // Перевірити чи є в favorites
       checkIfFavorite: (userId, teacherId) => {
         if (!userId || !teacherId) return false;
         const userFavorites = get().favorites[userId] || [];
         return userFavorites.includes(teacherId);
       },
 
-      // Додати до favorites
       addToFavorites: (userId, teacherId) => {
         if (!userId || !teacherId) return false;
 
@@ -42,7 +38,6 @@ export const useFavoritesStore = create(
         return true;
       },
 
-      // Видалити з favorites
       removeFromFavorites: (userId, teacherId) => {
         if (!userId || !teacherId) return false;
 
@@ -60,7 +55,6 @@ export const useFavoritesStore = create(
         return true;
       },
 
-      // Отримати повні дані викладачів
       getFavoriteTeachers: (userId, allTeachers) => {
         const favoriteIds = get().getFavorites(userId);
         return allTeachers.filter((teacher) =>
@@ -69,7 +63,7 @@ export const useFavoritesStore = create(
       },
     }),
     {
-      name: "learnlingo-favorites", // ключ в localStorage
+      name: "learnlingo-favorites",
     }
   )
 );

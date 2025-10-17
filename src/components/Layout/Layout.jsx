@@ -76,7 +76,7 @@ function Layout() {
                     className={css.logoutButton}
                     disabled={isLoggingOut}
                   >
-                    {isLoggingOut ? "Вихід..." : "Вийти"}
+                    {isLoggingOut ? "LogOut..." : "LogOut"}
                   </button>
                 </>
               ) : (

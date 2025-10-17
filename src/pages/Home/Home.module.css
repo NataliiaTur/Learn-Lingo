@@ -80,6 +80,7 @@
   overflow: visible;
   margin: 0 auto;
 }
+
 .homeListBorder::before {
   content: "";
   position: absolute;
@@ -114,7 +115,6 @@
   display: flex;
   align-items: baseline;
   gap: 4px;
-
   font-weight: 500;
   font-size: 28px;
   line-height: 114%;
