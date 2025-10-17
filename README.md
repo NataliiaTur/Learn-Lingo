@@ -9,11 +9,11 @@ Learn Lingo is a platform where users can browse language tutors, filter them by
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="./screenshots/Home.jpg" alt="Home Page" width="48%">
+  <img src="./screenshots/Home.jpg" alt="Home Page" width="90%">
 </div>
 
 <div align="center">
-  <img src="./screenshots/Teachers.jpg" alt="Teachers Page" width="48%">
+  <img src="./screenshots/Teachers.jpg" alt="Teachers Page" width="90%">
 </div>
 
 ## Key Features
