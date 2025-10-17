@@ -4,9 +4,6 @@ import "modern-normalize";
 import App from "./components/App/App.jsx";
 import "./styles/index.css";
 
-// import "./test-firebase.js";
-// import "./test-auth.js";
-
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
