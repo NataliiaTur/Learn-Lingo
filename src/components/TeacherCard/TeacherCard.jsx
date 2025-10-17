@@ -4,10 +4,12 @@ import { useFavoritesStore } from "../../stores/useFavoritesStore.js";
 import TeacherInfo from "./TeacherInfo/TeacherInfo.jsx";
 import AuthRequiredModal from "@components/AuthRequiredModal/AuthRequiredModal.jsx";
 import css from "./TeacherCard.module.css";
+import BookingModal from "../BookingModal/BookingModal.jsx";
 
 function TeacherCard({ teacher, onFavoriteChange }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showBookingModal, setShowBookingModal] = useState(false);
 
   const { currentUser } = useAuth();
 
@@ -178,7 +180,12 @@ function TeacherCard({ teacher, onFavoriteChange }) {
               )}
 
               <div className={css.wrapperButtonBookAndLess}>
-                <button className={css.bookButton}>Book trial lesson</button>
+                <button
+                  className={css.bookButton}
+                  onClick={() => setShowBookingModal(true)}
+                >
+                  Book trial lesson
+                </button>
 
                 {/* Згортання */}
                 <button onClick={handleReadMore} className={css.showLessButton}>
@@ -193,6 +200,12 @@ function TeacherCard({ teacher, onFavoriteChange }) {
       <AuthRequiredModal
         isOpen={showAuthModal}
         onClose={() => setShowAuthModal(false)}
+      />
+
+      <BookingModal
+        isOpen={showBookingModal}
+        onClose={() => setShowBookingModal(false)}
+        teacher={teacher}
       />
     </div>
   );

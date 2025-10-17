@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import css from "./Modal.module.css";
 
-function Modal({ isOpen, onClose, children }) {
+function Modal({ isOpen, onClose, children, size = "default" }) {
   useEffect(() => {
-    // Закриття на Escape
     const handleEscape = (e) => {
       if (e.key === "Escape") {
         onClose();
@@ -12,7 +11,6 @@ function Modal({ isOpen, onClose, children }) {
 
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
-      // Блокуємо скрол body
       document.body.style.overflow = "hidden";
     }
 
@@ -24,25 +22,18 @@ function Modal({ isOpen, onClose, children }) {
 
   if (!isOpen) return null;
 
-  // Закриття на backdrop
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
-
   return (
-    <div className={css.backdrop} onClick={handleBackdropClick}>
-      <div className={css.modal}>
+    <div className={css.backdrop} onClick={onClose}>
+      <div
+        className={`${css.modal} ${css[size]}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
-          type="button"
           className={css.closeButton}
           onClick={onClose}
           aria-label="Close modal"
         >
-          <svg className={css.closeIcon} width="32" height="32">
-            <use href="/public/icons.svg#icon-x"></use>
-          </svg>
+          ×
         </button>
         {children}
       </div>

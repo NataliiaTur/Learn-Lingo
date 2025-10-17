@@ -9,7 +9,40 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+
+  animation: fadeIn 0.3s ease;
   padding: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ⭐ Варіант за замовчуванням (малий) */
+.modal.default {
+  max-width: 566px;
+}
+
+/* ⭐ Великий варіант для форм */
+.modal.large {
+  max-width: 600px;
+  padding: 64px 48px; /* Трохи менше padding по боках */
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .modal {
@@ -20,7 +53,7 @@
   max-width: 566px;
   width: 100%;
   max-height: 90vh;
-  overflow-y: auto;
+
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -50,4 +83,23 @@
 
 .closeButton:hover {
   color: #f4c550;
+}
+
+/* ⭐ Кастомний скролбар для модалки */
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
 }

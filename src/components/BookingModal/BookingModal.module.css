@@ -1,0 +1,129 @@
+.content {
+  max-width: 100%;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #121417;
+  margin-bottom: 10px;
+}
+
+.teacherInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 15px;
+}
+
+.teacherAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.teacherLabel {
+  font-size: 12px;
+  color: #8a8a89;
+  margin-bottom: 4px;
+}
+
+.teacherName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #121417;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 14px;
+  color: #8a8a89;
+  margin-bottom: 4px;
+}
+
+.input {
+  padding: 16px 18px;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  font-size: 16px;
+  color: #121417;
+  transition: border-color 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #f4c550;
+}
+
+.input::placeholder {
+  color: rgba(18, 20, 23, 0.3);
+}
+
+.inputError {
+  border-color: #e74c3c;
+}
+
+.error {
+  font-size: 12px;
+  color: #e74c3c;
+  margin-top: 4px;
+}
+
+.radioGroupLabel {
+  font-size: 14px;
+  color: #8a8a89;
+  margin-bottom: 10px;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #121417;
+  cursor: pointer;
+}
+
+.radio {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #f4c550;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 16px;
+  background-color: #f4c550;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #121417;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.submitButton:hover {
+  background-color: #e0b03f;
+}
