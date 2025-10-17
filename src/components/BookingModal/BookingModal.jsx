@@ -24,7 +24,7 @@ function BookingModal({ isOpen, onClose, teacher }) {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} size="large">
       <div className={css.content}>
         <h3 className={css.title}>Book trial lesson</h3>
 
