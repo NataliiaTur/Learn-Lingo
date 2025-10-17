@@ -106,3 +106,21 @@ export const fetchAllTeachers = async () => {
     throw error;
   }
 };
+
+export const filterTeachers = (teachers, filters) => {
+  return teachers.filter((teacher) => {
+    const languageMatch = filters.language
+      ? teacher.languages.includes(filters.language)
+      : true;
+
+    const levelMatch = filters.level
+      ? teacher.levels.includes(filters.level)
+      : true;
+
+    const priceMatch = filters.price
+      ? teacher.price_per_hour <= parseInt(filters.price)
+      : true;
+
+    return languageMatch && levelMatch && priceMatch;
+  });
+};

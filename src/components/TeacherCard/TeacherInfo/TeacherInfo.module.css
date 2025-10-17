@@ -7,7 +7,6 @@
 .infoItem {
   display: flex;
   align-items: center;
-  gap: 8px;
   font-size: 16px;
   line-height: 150%;
   color: #121417;
@@ -33,6 +32,7 @@
   flex-shrink: 0;
   width: 16px;
   height: 16px;
+  margin-right: 8px;
 }
 
 .infoText {

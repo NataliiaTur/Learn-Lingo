@@ -41,3 +41,10 @@
 .endMessage {
   color: #8a8a89;
 }
+
+.emptyMessage {
+  text-align: center;
+  margin-top: 40px;
+  color: #8a8a89;
+  font-size: 18px;
+}
