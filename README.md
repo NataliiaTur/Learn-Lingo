@@ -6,6 +6,16 @@ A web application for an online language tutoring company that connects students
 
 Learn Lingo is a platform where users can browse language tutors, filter them by various criteria, add favorites, and book trial lessons. The application features user authentication, personalized favorites, and an intuitive booking system.
 
+## 📸 Screenshots
+
+<div align="center">
+  <img src="./screenshots/Home.jpg" alt="Home Page" width="48%">
+</div>
+
+<div align="center">
+  <img src="./screenshots/Teachers.jpg" alt="Teachers Page" width="48%">
+</div>
+
 ## Key Features
 
 - **Home Page**: Introduction to the platform with key statistics and benefits
