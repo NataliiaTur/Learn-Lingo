@@ -1,0 +1,138 @@
+.notFoundSection {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+}
+
+.notFoundContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.notFoundContent {
+  flex: 1;
+  max-width: 500px;
+}
+
+.errorCode {
+  font-size: 120px;
+  font-weight: 700;
+  color: #f4c550;
+  line-height: 1;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.errorTitle {
+  font-size: 48px;
+  font-weight: 600;
+  color: #121417;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.errorText {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #8a8a89;
+  margin-bottom: 40px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.homeButton,
+.teachersButton {
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.homeButton {
+  background-color: #f4c550;
+  color: #121417;
+}
+
+.homeButton:hover {
+  background-color: #e0b03f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 197, 80, 0.4);
+}
+
+.teachersButton {
+  background-color: transparent;
+  color: #121417;
+  border: 2px solid #f4c550;
+}
+
+.teachersButton:hover {
+  background-color: #f4c550;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 197, 80, 0.4);
+}
+
+.illustration {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.illustrationSvg {
+  width: 100%;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .notFoundContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .errorCode {
+    font-size: 80px;
+  }
+
+  .errorTitle {
+    font-size: 32px;
+  }
+
+  .errorText {
+    font-size: 16px;
+  }
+
+  .buttonGroup {
+    justify-content: center;
+  }
+
+  .illustration {
+    max-width: 300px;
+  }
+}
