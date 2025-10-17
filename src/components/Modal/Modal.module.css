@@ -23,15 +23,13 @@
   }
 }
 
-/* ⭐ Варіант за замовчуванням (малий) */
 .modal.default {
   max-width: 566px;
 }
 
-/* ⭐ Великий варіант для форм */
 .modal.large {
   max-width: 600px;
-  padding: 64px 48px; /* Трохи менше padding по боках */
+  padding: 64px 48px;
 }
 
 @keyframes slideUp {
@@ -85,7 +83,6 @@
   color: #f4c550;
 }
 
-/* ⭐ Кастомний скролбар для модалки */
 .modal::-webkit-scrollbar {
   width: 8px;
 }

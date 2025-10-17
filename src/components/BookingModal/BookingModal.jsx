@@ -16,18 +16,10 @@ function BookingModal({ isOpen, onClose, teacher }) {
   });
 
   const onSubmit = (data) => {
-    console.log("Booking data:", data);
-    console.log("Teacher:", teacher.name, teacher.surname);
-
-    // Тут можна додати відправку на сервер
-
-    // Показуємо повідомлення про успіх
     alert(`Booking successful! We will contact you at ${data.email}`);
 
-    // Очищаємо форму
     reset();
 
-    // Закриваємо модалку
     onClose();
   };
 

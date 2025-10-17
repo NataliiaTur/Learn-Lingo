@@ -210,16 +210,11 @@
 .levelBadge {
   padding: 8px 12px;
   border-radius: 35px;
-  border: 1px solid rgba(18, 20, 23, 0.2);
+  background-color: #f4c550;
+  border: none;
   font-size: 14px;
   font-weight: 500;
   line-height: 114%;
-}
-
-.levelBadge:first-child {
-  background-color: #f4c550;
-  color: #121417;
-  border: none;
 }
 
 .bookButton {
